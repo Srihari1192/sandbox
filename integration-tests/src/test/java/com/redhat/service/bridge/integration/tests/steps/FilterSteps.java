@@ -26,27 +26,6 @@ public class FilterSteps {
     }
 
 
-    @When("^send a cloud event to the Ingress of the Bridge \"([^\"]*)\":$")
-    public void sendCloudEventToIngressOfBridgeWithPath(String testBridgeName, String cloudEvent) {
-        IngressSteps ingressSteps=new IngressSteps(context);
-        ingressSteps.sendAndCheckCloudEvent(testBridgeName, cloudEvent, "", 200);
-    }
-
-
-
-
-    @Then("^Webhook site contains request with text \"([^\"]*)\" within (\\d+) (?:minute|minutes)$")
-    public void webhookSiteContainsRequest(String requestText, int timeoutMinutes) {
-        String requestTextWithoutPlaceholders = ContextResolver.resolveWithScenarioContext(context, requestText);
-        Awaitility.await()
-                .atMost(Duration.ofMinutes(timeoutMinutes))
-                .pollInterval(Duration.ofSeconds(1))
-                .untilAsserted(() -> Assertions.assertThat(WebhookSiteResource.requests())
-                        .map(request -> request.getContent())
-                        .as("Searching for request containing text: '%s'",
-                                requestTextWithoutPlaceholders)
-                        .anyMatch(requestContent -> requestContent.contains(requestTextWithoutPlaceholders)));
-    }
 }
 
 
