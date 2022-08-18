@@ -1,13 +1,12 @@
 name: Managed Connectors Cleanup
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *'
+  push:
+    branches:
+      - MGDOBR-1008test
 jobs:
   run-managed-connectors-delete-script:
     timeout-minutes: 30
     runs-on: ubuntu-latest
-    if: github.repository == '5733d9e2be6485d52ffa08870cabdee0/sandbox'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
