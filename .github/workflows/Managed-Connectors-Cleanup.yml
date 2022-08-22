@@ -18,8 +18,6 @@ jobs:
         run: |
           #echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
       - name: Run Managed connector delete scripts
-        env:
-          #MANAGED_CONNECTORS_CONTROL_PLANE_URL: ${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}
         run: |
           chmod +x .github/scripts/delete-managed-connectors.sh
           ./.github/scripts/delete-managed-connectors.sh
