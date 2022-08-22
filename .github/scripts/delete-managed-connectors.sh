@@ -6,7 +6,7 @@
 # This requires the ocm command: https://github.com/openshift-online/ocm-cli
 # You will need to login with `ocm login --token [...]`.
 
-. $(dirname "${BASH_SOURCE[0]}")/../configure.sh
+. $(dirname "${BASH_SOURCE[0]}")/../dev/bin/configure.sh
 
 export COS_BASE_PATH=${MANAGED_CONNECTORS_CONTROL_PLANE_URL}/api/connector_mgmt/v1
 export CONNECTORS_BASE=${COS_BASE_PATH}/kafka_connectors
