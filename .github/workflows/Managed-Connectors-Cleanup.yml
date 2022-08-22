@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: "main"
+          ref: "MGDOBR-1008test"
       - name: Free disk space
         uses: ./.github/actions/free-disk-space
       - name: Add mask
