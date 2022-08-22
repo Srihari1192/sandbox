@@ -8,7 +8,7 @@
 
 . dev/bin/configure.sh
 
-export COS_BASE_PATH=${MANAGED_CONNECTORS_CONTROL_PLANE_URL}/api/connector_mgmt/v1
+export COS_BASE_PATH=https://test.com/api/connector_mgmt/v1
 echo $COS_BASE_PATH
 export CONNECTORS_BASE=${COS_BASE_PATH}/kafka_connectors
 
@@ -16,6 +16,7 @@ MANAGED_CONNECTORS_IDS=$(curl -L --insecure --oauth2-bearer "$(ocm token)" "${CO
 
 for ID in $MANAGED_CONNECTORS_IDS
 do
+  echo infor loop
   curl -L --insecure --oauth2-bearer "$(ocm token)" -S -s -D /dev/stderr -XDELETE "${CONNECTORS_BASE}"/"${ID}" | jq
   echo "Deleted Managed Connector with id ${ID}"
 done
