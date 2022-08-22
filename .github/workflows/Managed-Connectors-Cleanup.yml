@@ -21,5 +21,5 @@ jobs:
         env:
           MANAGED_CONNECTORS_CONTROL_PLANE_URL: ${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}
         run: |
-          chmod +x ./.github/scripts/delete-managed-connectors.sh
+          chmod +x .github/scripts/delete-managed-connectors.sh
           ./.github/scripts/delete-managed-connectors.sh
