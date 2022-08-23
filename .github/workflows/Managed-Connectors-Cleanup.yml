@@ -18,7 +18,6 @@ jobs:
         uses: redhat-actions/oc-installer@v1
         with:
             oc_version: '3.11.173'
-      - name: Login ocm
       - name: Add mask
         run: |
           echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
