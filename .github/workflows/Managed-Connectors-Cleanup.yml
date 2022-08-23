@@ -15,6 +15,7 @@ jobs:
       - name: Free disk space
         uses: ./.github/actions/free-disk-space
       - name: Install ocm
+        shell: bash
         run: |
           mkdir -p ~/bin
           curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.30/ocm-linux-amd64
