@@ -19,6 +19,8 @@ jobs:
           mkdir -p ~/bin
           curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
           chmod +x ~/bin/ocm
+          ocm version
+          ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
       - name: Add mask
         run: |
           echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
