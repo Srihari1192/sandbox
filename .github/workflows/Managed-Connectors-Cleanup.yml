@@ -20,6 +20,7 @@ jobs:
           curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.30/ocm-linux-amd64
           chmod +x ~/bin/ocm
           echo "${HOME}/bin/ocm" >> $GITHUB_PATH
+          export PATH=${HOME}/bin/ocm:$PATH
       - name: Add mask
         run: |
           echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
