@@ -14,10 +14,11 @@ jobs:
           ref: "MGDOBR-1008test"
       - name: Free disk space
         uses: ./.github/actions/free-disk-space
-      - name: Install oc
-        uses: redhat-actions/oc-installer@v1
-        with:
-            oc_version: '3.11.173'
+      - name: Install ocm
+        run: |
+          mkdir -p ~/bin
+          curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
+          chmod +x ~/bin/ocm
       - name: Add mask
         run: |
           echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
