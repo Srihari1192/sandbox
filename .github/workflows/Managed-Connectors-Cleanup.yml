@@ -16,9 +16,6 @@ jobs:
         uses: ./.github/actions/free-disk-space
       - name: Install ocm
         run: |
-          mkdir -p ~/bin
-          curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
-          chmod +x ~/bin/ocm
           go get -u github.com/openshift-online/ocm-cli/cmd/ocm
           ocm version
           ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
