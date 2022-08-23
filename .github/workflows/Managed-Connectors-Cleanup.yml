@@ -14,6 +14,10 @@ jobs:
           ref: "MGDOBR-1008test"
       - name: Free disk space
         uses: ./.github/actions/free-disk-space
+      - name: Install oc
+          uses: redhat-actions/oc-installer@v1
+          with:
+            oc_version: '4.6'
       - name: Add mask
         run: |
           echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
