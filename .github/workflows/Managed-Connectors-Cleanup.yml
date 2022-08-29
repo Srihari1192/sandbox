@@ -17,10 +17,15 @@ jobs:
       - name: Download and Install ocm
         shell: bash
         run: |
-          mkdir -p ~/bin
-          wget -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
-          chmod +x ~/bin/ocm
+          echo Github path variable is :
+          echo $GITHUB_PATH
+          echo Path variable is :
+          echo $PATH
+          mkdir -p $HOME/.local/bin
+          wget -Lo $HOME/.local/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
+          chmod +x $HOME/.local/bin/ocm
           echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
+          echo after setting :
           echo $PWD
           echo $PATH
           echo $GITHUB_PATH
