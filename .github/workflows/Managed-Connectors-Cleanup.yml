@@ -32,6 +32,5 @@ jobs:
           MANAGED_CONNECTORS_CONTROL_PLANE_URL: ${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}
           ENV_TEST: Managed connector delete
         run: |
-          ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
           chmod +x .github/scripts/delete-managed-connectors.sh
           ./.github/scripts/delete-managed-connectors.sh
