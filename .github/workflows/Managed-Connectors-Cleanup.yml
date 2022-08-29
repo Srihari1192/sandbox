@@ -21,8 +21,10 @@ jobs:
           curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.30/ocm-linux-amd64
           chmod +x ~/bin/ocm
           echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
+          ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
       - name: Add mask
         run: |
+          echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
           echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
       - name: Run Managed connector delete scripts
         env:
