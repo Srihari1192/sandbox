@@ -6,6 +6,8 @@
 # This requires the ocm command: https://github.com/openshift-online/ocm-cli
 # You will need to login with `ocm login --token [...]`.
 
+echo in  delete managed connector script
+
 echo $ENV_TEST
 
 chmod +x dev/bin/configure.sh
