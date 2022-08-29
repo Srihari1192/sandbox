@@ -17,12 +17,11 @@ jobs:
       - name: Download and Install ocm
         shell: bash
         run: |
-          mkdir -p "$HOME/.local/bin"; echo "$HOME/.local/bin" >> $GITHUB_PATH
-          wget https://github.com/openshift-online/ocm-cli/releases/download/v0.1.30/ocm-linux-amd64 $HOME/.local/bin/ocm-linux-amd64 && chmod +x $HOME/.local/bin/ocm-linux-amd64
+          mkdir -p ~/bin
+          curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
+          chmod +x ~/bin/ocm
+          echo "${HOME}/.local/bin/ocm" >> $GITHUB_PATH
           ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
-      - name: set path
-        run: |
-          echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
       - name: Add mask
         run: |
           echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
