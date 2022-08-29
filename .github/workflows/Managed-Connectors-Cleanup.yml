@@ -23,7 +23,12 @@ jobs:
           curl -Lo $HOME/.local/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
           chmod +x $HOME/.local/bin/ocm
           export PATH=$HOME/.local/bin/ocm:$PATH
-
+      - name: Install Istio
+        shell: bash
+        run: |
+          curl -L https://istio.io/downloadIstio | ISTIO_VERSION=${{ inputs.istio-version }} TARGET_ARCH=x86_64 sh -
+          export PATH=$PWD/istio-${{ inputs.istio-version }}/bin:$PATH
+          istioctl manifest apply -y --set profile=default --set values.gateways.istio-ingressgateway.type="ClusterIP"
       - name: Add mask
         run: |
           echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN }}"
