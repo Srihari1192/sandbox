@@ -14,11 +14,11 @@ jobs:
           ref: "MGDOBR-1008test"
       - name: Free disk space
         uses: ./.github/actions/free-disk-space
-      - name: Install ocm
+      - name: Download and Install ocm
         shell: bash
         run: |
           mkdir -p "$HOME/.local/bin"; echo "$HOME/.local/bin" >> $GITHUB_PATH
-          wget https://github.com/openshift-online/ocm-cli/releases/download/v0.1.30/ocm-linux-amd64 $HOME/.local/bin && chmod +x $HOME/.local/bin
+          wget https://github.com/openshift-online/ocm-cli/releases/download/v0.1.30/ocm-linux-amd64 $HOME/.local/bin/ocm-linux-amd64 && chmod +x $HOME/.local/bin/ocm-linux-amd64
           ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
       - name: set path
         run: |
