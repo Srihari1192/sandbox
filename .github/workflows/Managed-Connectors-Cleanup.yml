@@ -18,7 +18,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p ~/bin
-          curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
+          wget -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
           chmod +x ~/bin/ocm
           echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
           ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
