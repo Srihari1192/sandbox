@@ -12,6 +12,7 @@ runs:
     - name: Install Istio
       shell: bash
       run: |
+        istioctl x precheck
         curl -L https://istio.io/downloadIstio | ISTIO_VERSION=${{ inputs.istio-version }} TARGET_ARCH=x86_64 sh -
         export PATH=$PWD/istio-${{ inputs.istio-version }}/bin:$PATH
         istioctl manifest apply -y --set profile=default --set values.gateways.istio-ingressgateway.type="ClusterIP"
