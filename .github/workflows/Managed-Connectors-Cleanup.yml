@@ -21,6 +21,10 @@ jobs:
           wget -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
           chmod +x ~/bin/ocm
           echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
+          echo $PWD
+          echo $PATH
+          echo $GITHUB_PATH
+          echo listed path variables
           ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
       - name: Add mask
         run: |
