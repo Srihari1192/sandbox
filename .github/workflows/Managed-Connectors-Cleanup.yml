@@ -26,7 +26,7 @@ jobs:
           - echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
       - name: Add mask
         run: |
-          echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
+          - echo "::add-mask::${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}"
       - name: Run Managed connector delete scripts
         env:
           MANAGED_CONNECTORS_CONTROL_PLANE_URL: ${{ secrets.MANAGED_CONNECTORS_CONTROL_PLANE_URL }}
