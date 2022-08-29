@@ -17,10 +17,8 @@ jobs:
       - name: Install ocm
         shell: bash
         run: |
-          mkdir -p ~/bin
-          curl -Lo ~/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.30/ocm-linux-amd64
-          chmod +x ~/bin/ocm
-          echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
+          curl -L https://github.com/openshift-online/ocm-cli/releases/download/v0.1.30/ocm-linux-amd64 TARGET_ARCH=x86_64 sh -
+          export PATH=$PWD/ocm/bin:$PATH
           ocm login --token $MANAGED_CONNECTORS_AUTH_OFFLINE_TOKEN
       - name: Add mask
         run: |
