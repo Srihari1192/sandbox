@@ -25,6 +25,7 @@ jobs:
           wget -Lo $HOME/.local/bin/ocm https://github.com/openshift-online/ocm-cli/releases/download/v0.1.64/ocm-linux-amd64
           chmod +x $HOME/.local/bin/ocm
           echo "${GITHUB_WORKSPACE}/bin/ocm" >> $GITHUB_PATH
+          export PATH=$HOME/.local/bin/ocm:$PATH
           echo after setting :
           echo $PWD
           echo $PATH
