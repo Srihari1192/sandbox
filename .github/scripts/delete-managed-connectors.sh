@@ -10,8 +10,6 @@ echo in  delete managed connector script
 
 echo $ENV_TEST
 
-chmod +x dev/bin/configure.sh
-. dev/bin/configure.sh
 
 export COS_BASE_PATH=${MANAGED_CONNECTORS_CONTROL_PLANE_URL}/api/connector_mgmt/v1
 echo $COS_BASE_PATH
