@@ -16,11 +16,11 @@ more [Filters](FILTERS.md). If no filter is specified, all the events coming fro
 
 Each `Source` has 2 parameters to specify:
 
-- `type`: the type of the `Source`. This must be one of the supported `Source` types listed below
+- `type`: the type of the `Source`. This must be one of the supported `Source` types listed belowsdf sdf sdf
     - Attempting to use an unknown `Source` type will result in an Error from the Bridge API.
-- `parameters`: A key/value map of configuration parameters for the `Source`
+- `parameters`: A key/value map of configuration parameters for the `Source`sdf sd
     - Only string for the `key` and `value` of the parameters are supported.
-    - The required parameters are `Source` specific and documented in the list of supported `Sources`
+    - The required parameters are `Source` specific and documented in the list of supported `Sources` sdfsd 
 
 ## Supported Source Types
 
