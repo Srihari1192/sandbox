@@ -12,7 +12,7 @@ more [Filters](FILTERS.md). If no filter is specified, all the events coming fro
 
 [Transformations](TRANSFORMATIONS.md) are currently not supported in source processors.
 
-## Parameters of a Source
+## Parameters of a Source test
 
 Each `Source` has 2 parameters to specify:
 
